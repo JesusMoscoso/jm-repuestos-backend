@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-JmApplication<JM>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.repuestos.JM.JmApplication",
+      "projectName": "JM",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
