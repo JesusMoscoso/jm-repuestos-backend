@@ -19,6 +19,8 @@ public interface IVehiculos {
     void eliminarVehiculo(Integer idVehiculo);
 
     //editar la informacion de un vehiculo
+    Vehiculo actualizarVehiculo(Integer idVehiculo, VehiculoDto vehiculoDto);
+    
 
 
 }

@@ -17,6 +17,7 @@ public class VehiculoService implements IVehiculos{
     @Autowired
     private VehiculoRepository vehiculoRepository;
 
+    //guardar vehiculo
     @Override
     public Vehiculo guardarVehiculo(VehiculoDto dto) {
         //nueva instancias de vehiculo
@@ -33,17 +34,38 @@ public class VehiculoService implements IVehiculos{
         return vehiculoRepository.save(vehiculo);
     }
 
+    //listar vehiculos
     @Override
     public List<Vehiculo> listarVehiculos() {
         return vehiculoRepository.findAll();
     }
 
+    //eliminar vehiculo
     @Override
     public void eliminarVehiculo(Integer idVehiculo) {
         Vehiculo vehiculo = vehiculoRepository.findById(idVehiculo)
             .orElseThrow(() -> new VehiculoNotFoundException(idVehiculo));
-
     vehiculoRepository.delete(vehiculo);
+    }
+
+    //actualizar vehiculo
+    @Override
+    public Vehiculo actualizarVehiculo(Integer idVehiculo, VehiculoDto dto) {
+        //buscamos el vehiculo con el id
+        Vehiculo vehiculo = vehiculoRepository.findById(idVehiculo)
+                .orElseThrow(() -> new VehiculoNotFoundException(idVehiculo));
+
+        // actualizamos los datos
+        vehiculo.setMarca(dto.getMarca());
+        vehiculo.setModelo(dto.getModelo());
+        vehiculo.setAnio(dto.getAnio());
+        vehiculo.setMotor(dto.getMotor());
+        vehiculo.setCombustible(dto.getCombustible());
+        vehiculo.setTransmision(dto.getTransmision());
+        vehiculo.setTraccion(dto.getTraccion());
+
+        // guardamos los cambios
+        return vehiculoRepository.save(vehiculo);
     }
 
 

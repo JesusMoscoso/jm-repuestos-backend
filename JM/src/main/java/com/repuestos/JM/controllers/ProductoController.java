@@ -1,7 +1,6 @@
 package com.repuestos.JM.controllers;
 
 import com.repuestos.JM.DTOS.ProductoDto;
-import com.repuestos.JM.DTOS.ProductoResponseDto;
 import com.repuestos.JM.models.Producto;
 import com.repuestos.JM.services.ProductosService;
 import lombok.RequiredArgsConstructor;

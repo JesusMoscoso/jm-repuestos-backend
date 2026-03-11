@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 
 
@@ -45,7 +47,12 @@ public class VehiculoController {
         return ResponseEntity.ok("Vehículo eliminado correctamente");
     }
 
-
+    @PutMapping("/editar/{id}")
+    public ResponseEntity<String> actualizarVehiculo(@PathVariable Integer id, 
+                                                    @RequestBody VehiculoDto dto) {
+        vehiculoService.actualizarVehiculo(id, dto);
+        return ResponseEntity.ok("Vehículo actualizado correctamente");
+    }
 
 
     
